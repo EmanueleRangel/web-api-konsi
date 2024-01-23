@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "yAC/C+tT1IZUvVvDfMjJyCZPEZb7H3LObgtGxFSgu9U=",
+  "Source": "webapi-konsi",
+  "BasePath": "_content/webapi-konsi",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
