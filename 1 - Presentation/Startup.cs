@@ -9,17 +9,23 @@ public class Startup
 
     public void ConfigureServices(IServiceCollection services)
     {
-        IHttpClientBuilder httpClientBuilder = services.AddHttpClient<IAuthService, AuthService>()
-        .ConfigurePrimaryHttpMessageHandler(() =>
+        services.AddHttpClient<IAuthService, AuthService>(client =>
         {
-            return new HttpClientHandler
-            {
-                AllowAutoRedirect = false,
-                UseDefaultCredentials = true
-                // Outras configurações...
-            };
-        });
+            client.BaseAddress = new Uri("https://sua-api-externa.com/");
+        })
+        .ConfigurePrimaryHttpMessageHandler(GetPrimaryHttpMessageHandler);
 
+        // ... outros serviços ...
+    }
+
+    private HttpClientHandler GetPrimaryHttpMessageHandler()
+    {
+        return new HttpClientHandler
+        {
+            AllowAutoRedirect = false,
+            UseDefaultCredentials = true
+            // Outras configurações...
+        };
     }
 
     public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

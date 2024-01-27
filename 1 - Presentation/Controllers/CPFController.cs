@@ -7,6 +7,8 @@ namespace webapi_konsi.Controllers;
 public class CPFController : ControllerBase
 {
     private readonly ILogger<CPFController> _logger;
+    private readonly IBenefitsService _benefitsService;
+    private readonly IAuthService _authService;
 
     public CPFController(ILogger<CPFController> logger)
     {
@@ -16,21 +18,20 @@ public class CPFController : ControllerBase
     [HttpPost]
     public IActionResult Authenticate([FromBody] AuthenticationCommandRequest request)
     {
-        if (IsValidCredentials(request.Email, request.Password))
-        {
-            var token = "seu_token_aqui";
+        _authService.ValidateCredentialsAsync(request.Email, request.Password);
 
-            return Ok(new { Token = token });
-        }
+        var response = new AuthenticationCommandResponse();
 
-        return Unauthorized();
+        return Ok(response);
     }
-        private bool IsValidCredentials(string email, string password)
+
+
+ [HttpGet]        
+    public IActionResult Get(GetBenefitsQueryRequest request)
     {
-        // Adicione sua lógica de verificação de credenciais aqui
-        // Este é um exemplo simples
-        return email == "seu_email" && password == "sua_senha";
-    }
+        var benefits = _benefitsService.GetBenefits(request.CPF);
+        return Ok(benefits);
+    } 
 }
 
 
