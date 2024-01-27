@@ -1,5 +1,17 @@
 var builder = WebApplication.CreateBuilder(args);
 
+  static void Main(string[] args)
+    {
+        CreateHostBuilder(args).Build().Run();
+    }
+
+    static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseUrls("http://localhost:5000"); // Especifique a porta desejada aqui
+            });
+
 // Add services to the container.
 
 builder.Services.AddControllers();

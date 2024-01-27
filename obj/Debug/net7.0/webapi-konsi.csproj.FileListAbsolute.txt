@@ -31,3 +31,14 @@
 /Users/emanuelerangel/Documents/repos/webapi-konsi/obj/Debug/net7.0/webapi-konsi.pdb
 /Users/emanuelerangel/Documents/repos/webapi-konsi/obj/Debug/net7.0/webapi-konsi.genruntimeconfig.cache
 /Users/emanuelerangel/Documents/repos/webapi-konsi/obj/Debug/net7.0/ref/webapi-konsi.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/FluentValidation.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/MediatR.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/MediatR.Contracts.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/System.Net.Http.Formatting.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/Newtonsoft.Json.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/Newtonsoft.Json.Bson.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/System.Net.Http.Json.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/System.Text.Encodings.Web.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/System.Text.Json.dll
+/Users/emanuelerangel/Documents/repos/webapi-konsi/bin/Debug/net7.0/runtimes/browser/lib/net7.0/System.Text.Encodings.Web.dll
