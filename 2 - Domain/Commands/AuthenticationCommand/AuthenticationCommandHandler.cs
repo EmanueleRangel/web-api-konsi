@@ -1,28 +1,38 @@
-// Handlers/AuthHandler.cs
-using Microsoft.AspNetCore.Mvc;
+using MediatR;
 
-public class AuthHandler
+public class AuthenticationCommandHandler : IRequestHandler<AuthenticationCommandRequest, AuthenticationCommandResponse>
 {
-    private readonly IAuthService _externalAuthService;
+    private readonly IAuthService _authService;
+    private readonly ILogger<AuthenticationCommandHandler> _logger;
 
-    public AuthHandler(IAuthService externalAuthService)
+    public AuthenticationCommandHandler(IAuthService authService, ILogger<AuthenticationCommandHandler> logger)
     {
-        _externalAuthService = externalAuthService;
+        _authService = authService;
+        _logger = logger;
     }
 
-    public async Task<IActionResult> HandleAsync(HttpContext context)
+    public async Task<AuthenticationCommandResponse> Handle(AuthenticationCommandRequest request, CancellationToken cancellationToken)
     {
-        var request = await context.Request.ReadFromJsonAsync<AuthenticationCommandRequest>();
-
-        // Use o serviço de integração para validar credenciais
-        var isValidCredentials = await _externalAuthService.ValidateCredentialsAsync(request?.Email, request?.Password);
-
-        if (isValidCredentials)
+        try
         {
-            var token = "seu_token_aqui";
-            return new ObjectResult(new { Token = token }) { StatusCode = StatusCodes.Status200OK };
-        }
+            _logger.LogInformation("Handling AuthenticationCommand");
 
-        return new ObjectResult("Credenciais inválidas") { StatusCode = StatusCodes.Status401Unauthorized };
+            var isValidCredentials = await _authService.ValidateCredentialsAsync(request?.Email, request?.Password);
+
+            if (isValidCredentials)
+            {
+                var response = new AuthenticationCommandResponse();
+                var token = response.Token;
+                _logger.LogInformation("Authentication successful for email: {Email}", request?.Email);
+                return new AuthenticationCommandResponse{Token = token};
+            }
+            _logger.LogWarning("Authentication failed for email: {Email}", request?.Email);
+            return null;
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error handling AuthenticationCommand");
+            throw ex;
+        }
     }
 }

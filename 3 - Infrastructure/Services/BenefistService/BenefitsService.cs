@@ -1,10 +1,3 @@
-
-using System.Collections.Generic;
-using System.Net.Http;
-using System.Threading.Tasks;
-using System.Net.Http;
-using System.Net.Http.Formatting;
-
 public class BenefitsService : IBenefitsService{
     private readonly HttpClient _httpClient;
 

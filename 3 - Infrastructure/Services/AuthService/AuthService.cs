@@ -1,30 +1,37 @@
-
-using System.Threading.Tasks;
-using System;
-using System.Net.Http;
-
 public class AuthService{
-    private readonly string _externalApiUrl;
-    private readonly string _httpClient;
+    private readonly string _externalApiUrl = "http://teste-dev-api-dev-140616584.us-east-1.elb.amazonaws.com/";
+    private readonly HttpClient _httpClient;
 
     public AuthService(HttpClient httpClient, string externalApiUrl)
     {
-        //_httpClient = httpClient;
+        _httpClient = httpClient;
         _externalApiUrl = externalApiUrl;
     }
-    public async Task<bool> ValidateCredentialsAsync(string email, string password)
+    public async Task<string> ValidateCredentialsAsync(string email, string password)
+{
+    try
     {
-        var requestData = new { Email = email, Password = password };
+        var requestData = new AuthenticationCommandRequest{ Email = email, Password = password };
 
-        var response = "example";
-        //await _httpClient.PostAsJsonAsync(_externalApiUrl, requestData);
+        var response = await _httpClient.PostAsJsonAsync(_externalApiUrl, requestData);
 
-        if (true)
+        response.EnsureSuccessStatusCode();
+
+        var result = await response.Content.ReadFromJsonAsync<AuthenticationCommandResponse>();
+
+        if (result != null && !string.IsNullOrEmpty(result.Token))
         {
-            var result = "result";
-            return true;
+            return result.Token;
         }
-
-        return false;
+        else
+        {
+            return null;
+        }
     }
+    catch (Exception ex)
+    {
+        throw ex;
+    }
+}
+
 }
