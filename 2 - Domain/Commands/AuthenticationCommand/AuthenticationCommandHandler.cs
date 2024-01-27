@@ -1,20 +1,18 @@
 // Handlers/AuthHandler.cs
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 public class AuthHandler
 {
-    private readonly IExternalAuthService _externalAuthService;
+    private readonly IAuthService _externalAuthService;
 
-    public AuthHandler(IExternalAuthService externalAuthService)
+    public AuthHandler(IAuthService externalAuthService)
     {
         _externalAuthService = externalAuthService;
     }
 
     public async Task<IActionResult> HandleAsync(HttpContext context)
     {
-        var request = await context.Request.ReadFromJsonAsync<AuthRequest>();
+        var request = await context.Request.ReadFromJsonAsync<AuthenticationCommandRequest>();
 
         // Use o serviço de integração para validar credenciais
         var isValidCredentials = await _externalAuthService.ValidateCredentialsAsync(request?.Email, request?.Password);

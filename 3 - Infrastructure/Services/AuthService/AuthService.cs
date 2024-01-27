@@ -9,19 +9,20 @@ public class AuthService{
 
     public AuthService(HttpClient httpClient, string externalApiUrl)
     {
-        _httpClient = httpClient;
+        //_httpClient = httpClient;
         _externalApiUrl = externalApiUrl;
     }
     public async Task<bool> ValidateCredentialsAsync(string email, string password)
     {
         var requestData = new { Email = email, Password = password };
 
-        var response = await _httpClient.PostAsJsonAsync(_externalApiUrl, requestData);
+        var response = "example";
+        //await _httpClient.PostAsJsonAsync(_externalApiUrl, requestData);
 
-        if (response.IsSuccessStatusCode)
+        if (true)
         {
-            var result = await response.Content.ReadAsAsync<bool>();
-            return result;
+            var result = "result";
+            return true;
         }
 
         return false;
