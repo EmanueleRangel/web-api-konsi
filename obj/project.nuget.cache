@@ -1,10 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "lM+jOxron+rZxqfxKK1qXgZqhtxsnd3KIziA1EV2QD+MywFxgiaOE0CG8+EcMuVOY/HApEWfFKeyb4NrDQjUcw==",
+  "dgSpecHash": "qANRJemGuGczvwvLf+fLeBDIXlxG0Wd39K8P/l6xSXJMrJY3IRXVhBNRltZKvnelKL2kviIQPBDGRKSvZ2oKJQ==",
   "success": true,
   "projectFilePath": "/Users/emanuelerangel/Documents/repos/webapi-konsi/webapi-konsi.csproj",
   "expectedPackageFiles": [
+    "/Users/emanuelerangel/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/fluentvalidation/11.9.0/fluentvalidation.11.9.0.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/fluentvalidation.dependencyinjectionextensions/11.9.0/fluentvalidation.dependencyinjectionextensions.11.9.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/mediatr/12.2.0/mediatr.12.2.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/mediatr.contracts/2.0.1/mediatr.contracts.2.0.1.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/microsoft.aspnet.webapi.client/6.0.0/microsoft.aspnet.webapi.client.6.0.0.nupkg.sha512",
@@ -12,17 +14,28 @@
     "/Users/emanuelerangel/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/microsoft.extensions.dependencyinjection.abstractions/8.0.0/microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/microsoft.openapi/1.4.3/microsoft.openapi.1.4.3.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/microsoft.testplatform/17.8.0/microsoft.testplatform.17.8.0.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/moq/4.20.70/moq.4.20.70.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/newtonsoft.json/13.0.1/newtonsoft.json.13.0.1.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/newtonsoft.json.bson/1.0.2/newtonsoft.json.bson.1.0.2.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/system.memory/4.5.5/system.memory.4.5.5.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/system.net.http.json/8.0.0/system.net.http.json.8.0.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/Users/emanuelerangel/.nuget/packages/system.text.json/8.0.0/system.text.json.8.0.0.nupkg.sha512",
-    "/Users/emanuelerangel/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+    "/Users/emanuelerangel/.nuget/packages/system.threading.tasks.extensions/4.5.4/system.threading.tasks.extensions.4.5.4.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit/2.6.6/xunit.2.6.6.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.abstractions/2.0.3/xunit.abstractions.2.0.3.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.analyzers/1.10.0/xunit.analyzers.1.10.0.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.assert/2.6.6/xunit.assert.2.6.6.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.core/2.6.6/xunit.core.2.6.6.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.extensibility.core/2.6.6/xunit.extensibility.core.2.6.6.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.extensibility.execution/2.6.6/xunit.extensibility.execution.2.6.6.nupkg.sha512",
+    "/Users/emanuelerangel/.nuget/packages/xunit.runner.visualstudio/2.5.6/xunit.runner.visualstudio.2.5.6.nupkg.sha512"
   ],
   "logs": []
 }
