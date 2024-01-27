@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using MediatR;
 
 namespace webapi_konsi.Controllers;
 
@@ -6,32 +7,31 @@ namespace webapi_konsi.Controllers;
 [Route("[controller]")]
 public class CPFController : ControllerBase
 {
-    private readonly ILogger<CPFController> _logger;
-    private readonly IBenefitsService _benefitsService;
-    private readonly IAuthService _authService;
+    private readonly IMediator _mediator;
 
-    public CPFController(ILogger<CPFController> logger)
+    public CPFController(IMediator mediator)
     {
-        _logger = logger;
+        _mediator = mediator;
+    }
+
+    [HttpGet("{cpf}")]
+    public async Task<IActionResult> GetBenefitData(string cpf)
+    {
+        var request = new GetBenefitsQueryRequest { CPF = cpf };
+        var result = await _mediator.Send(request);
+
+        return Ok(result);
     }
 
     [HttpPost]
-    public IActionResult Authenticate([FromBody] AuthenticationCommandRequest request)
+    public async Task<IActionResult> Authenticate([FromBody] AuthenticationCommandRequest request)
     {
-        _authService.ValidateCredentialsAsync(request.Email, request.Password);
+        var requestBody = new AuthenticationCommandRequest(){Email = request.Email, Password = request.Password};
 
-        var response = new AuthenticationCommandResponse();
+        var result = await _mediator.Send(requestBody);
 
-        return Ok(response);
+        return Ok(result);
     }
-
-
- [HttpGet]        
-    public IActionResult Get(GetBenefitsQueryRequest request)
-    {
-        var benefits = _benefitsService.GetBenefits(request.CPF);
-        return Ok(benefits);
-    } 
 }
 
 
