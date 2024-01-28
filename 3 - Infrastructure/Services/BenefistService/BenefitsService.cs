@@ -1,10 +1,24 @@
-public class BenefitsService : IBenefitsService{
+public class BenefitsService : IBenefitsService
+{
     private readonly HttpClient _httpClient;
+    private readonly IRedisClient _redisClient;
 
-    public BenefitsService(HttpClient httpClient)
+    public BenefitsService(HttpClient httpClient, IRedisClient redisClient)
     {
         _httpClient = httpClient;
+        _redisClient = redisClient;
     }
+public void AddCpfToCache(string cpf)
+{
+    _redisClient.Set(cpf, "{}");
+}
+
+public bool CpfExistsInCache(string cpf)
+{
+    string value = _redisClient.Get(cpf);
+    return value != null;
+}
+
 
     public async Task<GetBenefitsQueryResponse> GetBenefits(string cpf)
     {
@@ -20,12 +34,15 @@ public class BenefitsService : IBenefitsService{
             }
             else
             {
-                return null;
+                // Handle non-success status codes appropriately
+                throw new HttpRequestException("API request failed with status code: " + response.StatusCode);
             }
         }
         catch (Exception ex)
         {
+           
             throw ex;
         }
     }
+
 }
