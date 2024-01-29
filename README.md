@@ -33,11 +33,6 @@ Após realizar a consulta, os dados de matrículas de um CPF devem ser indexados
 Clone este repositório.
 Instale as dependências necessárias.
 Inicie a aplicação.
-Exemplo de Uso:
-
-Copy code
-git clone https://github.com/seu-usuario/nome-do-repositorio.git
-cd nome-do-repositorio
 npm install
 npm start
 
