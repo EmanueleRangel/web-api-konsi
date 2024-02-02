@@ -8,30 +8,30 @@ public class AuthService{
         _externalApiUrl = externalApiUrl;
     }
     public async Task<string> ValidateCredentialsAsync(string email, string password)
-{
-    try
     {
-        var requestData = new AuthenticationCommandRequest{ Email = email, Password = password };
-
-        var response = await _httpClient.PostAsJsonAsync(_externalApiUrl, requestData);
-
-        response.EnsureSuccessStatusCode();
-
-        var result = await response.Content.ReadFromJsonAsync<AuthenticationCommandResponse>();
-
-        if (result != null && !string.IsNullOrEmpty(result.Token))
+        try
         {
-            return result.Token;
+            var requestData = new AuthenticationCommandRequest{ Email = email, Password = password };
+
+            var response = await _httpClient.PostAsJsonAsync(_externalApiUrl, requestData);
+
+            response.EnsureSuccessStatusCode();
+
+            var result = await response.Content.ReadFromJsonAsync<AuthenticationCommandResponse>();
+
+            if (result != null && !string.IsNullOrEmpty(result.Token))
+            {
+                return result.Token;
+            }
+            else
+            {
+                return null;
+            }
         }
-        else
+        catch (Exception ex)
         {
-            return null;
+            throw ex;
         }
     }
-    catch (Exception ex)
-    {
-        throw ex;
-    }
-}
 
 }
